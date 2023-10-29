@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+
 const { initializeApp, credential } = require("firebase/app");
 const {
   getFirestore,
@@ -17,6 +19,7 @@ const {
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
